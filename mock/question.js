@@ -12,9 +12,45 @@ module.exports = [
                 errno: 0,
                 data: {
                     id: Random.id(),
-                    title:Random.ctitle(),
+                    title: Random.ctitle(),
+                    desc: '这是问卷的描述',
+                    css: '',
+                    js: '',
                     // 组件列表
                     componentList: [
+                        {
+                            fe_id: Random.id(),
+                            type: 'questionCheckbox',
+                            title: '多选',
+                            isHidden: false,
+                            isLocked: false,
+                            props: {
+                                title: '多选框',
+                                isVertical: false,
+                                list: [
+                                    { value: 'item1', text: '选项1', checked: false },
+                                    { value: 'item2', text: '选项2', checked: false },
+                                    { value: 'item3', text: '选项3', checked: false },
+                                ],
+                            }
+                        },
+                        {
+                            fe_id: Random.id(),
+                            type: 'questionRadio',
+                            title: '单选',
+                            isHidden: false,
+                            isLocked: false,
+                            props: {
+                                title: '单选标题',
+                                isVertical: false,
+                                options: [
+                                    { value: 'item1', text: '选项1' },
+                                    { value: 'item2', text: '选项2' },
+                                    { value: 'item3', text: '选项3' },
+                                ],
+                                value: '',
+                            }
+                        },
                         {
                             fe_id: Random.id(),
                             type: 'questionInfo',
@@ -72,7 +108,18 @@ module.exports = [
                                 text: '这是来自服务端的一行段落',
                                 isCenter: true
                             }
-                        }
+                        },
+                        {
+                            fe_id: Random.id(),
+                            type: 'questionTextarea',
+                            title: '多行输入',
+                            isHidden: false,
+                            isLocked: false,
+                            props: {
+                                title: '你的爱好',
+                                placeholder: '请输入...'
+                            }
+                        },
                     ]
                 }
             }
