@@ -1,6 +1,7 @@
 const Mock = require('mockjs')
 const Random = Mock.Random
 const getQuestionList = require('./data/getQuestionList')
+const genComponentList = require('./data/genComponentList')
 
 module.exports = [
     // 获取单个问卷信息
@@ -16,111 +17,9 @@ module.exports = [
                     desc: '这是问卷的描述',
                     css: '',
                     js: '',
+                    isPublished: true,
                     // 组件列表
-                    componentList: [
-                        {
-                            fe_id: Random.id(),
-                            type: 'questionCheckbox',
-                            title: '多选',
-                            isHidden: false,
-                            isLocked: false,
-                            props: {
-                                title: '多选框',
-                                isVertical: false,
-                                list: [
-                                    { value: 'item1', text: '选项1', checked: false },
-                                    { value: 'item2', text: '选项2', checked: false },
-                                    { value: 'item3', text: '选项3', checked: false },
-                                ],
-                            }
-                        },
-                        {
-                            fe_id: Random.id(),
-                            type: 'questionRadio',
-                            title: '单选',
-                            isHidden: false,
-                            isLocked: false,
-                            props: {
-                                title: '单选标题',
-                                isVertical: false,
-                                options: [
-                                    { value: 'item1', text: '选项1' },
-                                    { value: 'item2', text: '选项2' },
-                                    { value: 'item3', text: '选项3' },
-                                ],
-                                value: '',
-                            }
-                        },
-                        {
-                            fe_id: Random.id(),
-                            type: 'questionInfo',
-                            title: '输入框2',
-                            isHidden: false,
-                            isLocked: false,
-                            props: {
-                                title: '问卷信息111',
-                                desc: '12231231'
-                            }
-                        },
-                        {
-                            fe_id: Random.id(),
-                            // 组件类型，不可重复，前后端统一
-                            type: 'questionTitle',
-                            title: '标题',
-                            isHidden: false,
-                            isLocked: false,
-                            // 组件的属性
-                            props: {
-                                text: '个人信息调研',
-                                level: 1,
-                                isCenter: false
-                            }
-                        },
-                        {
-                            fe_id: Random.id(),
-                            type: 'questionInput',
-                            title: '输入框',
-                            isHidden: false,
-                            isLocked: false,
-                            props: {
-                                title: '你的姓名',
-                                placeholder: '请输入姓名'
-                            }
-                        },
-                        {
-                            fe_id: Random.id(),
-                            type: 'questionInput',
-                            title: '输入框2',
-                            isHidden: false,
-                            isLocked: false,
-                            props: {
-                                title: '你的电话',
-                                placeholder: '请输入电话'
-                            }
-                        },
-                        {
-                            fe_id: Random.id(),
-                            type: 'questionParagraph',
-                            title: '输入框2',
-                            isHidden: false,
-                            isLocked: false,
-                            props: {
-                                text: '这是来自服务端的一行段落',
-                                isCenter: true
-                            }
-                        },
-                        {
-                            fe_id: Random.id(),
-                            type: 'questionTextarea',
-                            title: '多行输入',
-                            isHidden: false,
-                            isLocked: false,
-                            props: {
-                                title: '你的爱好',
-                                placeholder: '请输入...'
-                            }
-                        },
-                    ]
+                    componentList: genComponentList()
                 }
             }
         }
